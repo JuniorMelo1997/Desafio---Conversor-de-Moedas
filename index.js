@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const converting = {};
+require('dotenv').config()
 
 const currencyChoices = [
     "ARS - PESO ARGENTINO",
@@ -60,7 +61,7 @@ const operation = ()=>{inquirer.prompt([
 
 const convertCurrency = async ({fromCurrency, toCurrency, amount})=>{
     const myHeaders = new Headers();
-    myHeaders.append("apikey", "aiYF96F5RFrSSkl4jpYfXbZHelEaMt0P");
+    myHeaders.append("apikey", process.env.API_KEY);
 
     const requestOptions = {
     method: 'GET',
